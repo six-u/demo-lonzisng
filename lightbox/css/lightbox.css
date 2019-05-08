@@ -1,0 +1,49 @@
+#windowbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background-color: rgba(0,0,0,.9);
+    display: none;
+}
+#windowbox .big-img {
+    width: 70%;
+    height: 80%;
+    margin: 0 auto;
+    margin-top:10vh;
+}
+#windowbox .big-img img{
+    width: 100%;
+    height: 100%;
+    transition: all .3s linear;
+}
+#windowbox .close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    filter: brightness(50%);
+}
+#windowbox .close:hover{
+    filter: brightness(100%);
+}
+#windowbox .text{
+    text-align: center;
+    color: #fff;
+}
+#windowbox p:last-child{
+    position: absolute;
+    top:44vh;
+    width: 100%;
+}
+#windowbox p:last-child img{
+    padding:0 16px;
+    filter: brightness(50%);
+}
+#windowbox p:last-child img:hover{
+    filter: brightness(100%);
+}
+#windowbox p:last-child img:last-child{
+    float:right;
+}

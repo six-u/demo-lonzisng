@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/lightbox.css">
+    <style type="text/css">
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .container figure img{
+            width: 480px;
+            height:270px;
+        }
+        figure{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="lightbox">
+        <figure>
+            <img src="img/a (6).jpg" alt=""/>
+            <figcaption>寒鸦号</figcaption>
+        </figure>
+        <figure>
+            <img src="img/a (3).jpg" alt=""/>
+            <figcaption>二太爷</figcaption>
+        </figure>
+        <figure>
+            <img src="img/a (4).jpg" alt=""/>
+            <figcaption>八爷</figcaption>
+        </figure>
+        <figure>
+            <img src="img/a (9).jpg" alt=""/>
+            <figcaption>老色鬼</figcaption>
+        </figure>  
+        <figure>
+            <img src="img/a (1).jpg" alt=""/>
+            <figcaption>亡灵法师</figcaption>
+        </figure>
+        <figure>
+            <img src="img/a (7).jpg" alt=""/>
+            <figcaption>油炸弟弟</figcaption>
+        </figure>
+        <figure>
+            <img src="img/a (5).jpg" alt=""/>
+            <figcaption>康师傅</figcaption>
+        </figure>
+    </div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/lightbox.js"></script>
+<script type="text/javascript">
+    lightbox.init({
+        selector:"#lightbox"
+        // srcArr:["img/a (6).jpg","img/a (3).jpg","img/a (4).jpg","img/a (9).jpg"],
+        // textArr:["寒鸦号","二太爷","八爷","老色鬼"],
+        // rewrite:true
+    })
+</script>
+</body>
+</html>
