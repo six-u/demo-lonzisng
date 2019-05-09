@@ -24,6 +24,11 @@
                 this.__lightBox(this.__selector);
             }
         }
+        this.extend = function(obj){
+            for(let key in obj){
+                this[key]=obj[key];
+            }
+        }
         //创建遮罩层
         this.__createLightBox=function (selector){
         $(selector).after(`<div id="windowbox"><div class="big-img"><img src="" alt="" /></div><p class="text"></p><div id="closeLight" class="close">
@@ -76,5 +81,11 @@
             }
         }
     }
+    LightBox.prototype.extend=function(obj){
+        for(let key in obj){
+            this[key]=obj[key];
+        }
+    }
     window.lightbox = new LightBox();
+    window.lightbox.fn=LightBox.prototype;
 })();
