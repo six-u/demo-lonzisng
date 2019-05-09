@@ -10,22 +10,22 @@
         */
         // 初始化
         this.init=function (obj){
-            this.selector=obj.selector;
-            this.rewrite=obj.rewrite;
-            this.srcArr=[];
-            this.textArr=[];
-            this.createLightBox(this.selector);
+            this.__selector=obj.selector;
+            this.__rewrite=obj.rewrite;
+            this.__srcArr=[];
+            this.__textArr=[];
+            this.__createLightBox(this.__selector);
             if(obj.srcArr!==undefined&&obj.textArr!==undefined){
-                this.srcArr=obj.srcArr;
-                this.textArr=obj.textArr;
-                this.createFigureList(this.selector,this.srcArr,this.textArr,this.rewrite);
-                this.lightBox(this.selector);
+                this.__srcArr=obj.srcArr;
+                this.__textArr=obj.textArr;
+                this.__createFigureList(this.__selector,this.__srcArr,this.__textArr,this.__rewrite);
+                this.__lightBox(this.__selector);
             }else{
-                this.lightBox(this.selector);
+                this.__lightBox(this.__selector);
             }
         }
         //创建遮罩层
-        this.createLightBox=function (selector){
+        this.__createLightBox=function (selector){
         $(selector).after(`<div id="windowbox"><div class="big-img"><img src="" alt="" /></div><p class="text"></p><div id="closeLight" class="close">
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABHElEQVRYR+2W7W3CQAyGH09QRmEEOgGwAZ2gMAErsAHZAJgARugo7QRGlu4QCsmdkwYdSMnP6Gw/fu/8IRT+pHB8RoBRgddXQFWnwBY4iUjlqRpVXQDfwEZEflI2SQVC8DMwCU6+chCqugL24fwv8JmCyAEcgXktg1aIWvBoZsqZIo1fDsAMDw2WDxAtwc10KSKWSHcAs0g4vkF4zvQGyEEEx/HO7+Nk34sddpdhIsum5FzBOwFklOiceTRwKxANMkq4M39PAOc76KSC+wqcwaOybggXQKrOn16GnibjOdOrEYWpVq4Vq2rxYWS7wAX46DmO/4BZ73Ecup9B7IAqtwvUmpXtBet/LSRtD2fI/64yHDJg3dcIMCpQXIErVXOQIfJG8JYAAAAASUVORK5CYII=" alt=""></div>
         <p><img id="prevLight" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAABv0lEQVRoQ93b0VHDMAwG4P+fAEboCDABdAOYALoBTABMQpkARugIsAEjwATidFfueGkTO7b0G73mFPuLLnmQYmKAMLMHALcATgG8Abgn+VWzddYkReaY2fMe+3fZHcl1zT6kwQewv85zku+laFnwBNada5K7fwGegf0GsKp5j+UqPAPrRb0m6R+v4pACz8RuSG6LpfsEGXAE1s0S4CisBDgSmw6OxqaCM7Bp4CxsCjgTGw7OxoaCFbBhYBVsCFgJ2x2shu0KVsR2A6tiu4CVsc3B6tim4BGwzcCjYJuAR8IuBo+GXQQeEVsNNrMrAK8TncNF3cXaruRUXlUTz8y8TXpz5OaS2CUVfgTgE71DsSW5mXraGddrK7wC4IOsk9HQVWBHmpnPa32UeSzkKl0NHhW9CDwiejF4NHQT8EjoZuBR0E3BI6Cbg9XRXcDK6G5gVXRXsCK6O1gNHQJWQoeBVdChYAV0ODgbnQLORKeBs9Cp4Ax0OjgaLQGORMuAo9BS4Ai0HLgAXfVXvCR4JvqFpPfGi0IWPAP9RNJHPkUhDT6C9lMtZyQ/i7QqRwCmNm1mlwC8mhcAPgDc1ZxZ8nV+ACHLMEzuYm8uAAAAAElFTkSuQmCC" alt="">
@@ -33,7 +33,7 @@
         </p></div>`);
         }
         //创建内容列表
-        this.createFigureList=function (selector,srcArr,textArr,rewrite){
+        this.__createFigureList=function (selector,srcArr,textArr,rewrite){
             if(rewrite===true){$(selector).html("");}
             for(let i=0;i<srcArr.length;i++){
                 $(selector).append(`<figure>
@@ -43,7 +43,7 @@
             }
         }
         //添加事件
-        this.lightBox = function (selector){
+        this.__lightBox = function (selector){
             let current=-1,srcArr=[],textArr=[];
             for(let i=0;i<$(selector).find("figure").length;i++){
                 let src = $(selector).find("figure:eq("+i+")").find("img").attr("src");
