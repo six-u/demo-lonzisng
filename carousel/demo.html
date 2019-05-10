@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/carousel.css">
+    <title>轮播</title>
+</head>
+<body>
+    <section>
+        <div id="carousel" class="carousel">
+            <figure class="current">
+                <img src="img/a (6).jpg" alt=""/>
+                <figcaption>寒鸦号 -加勒比黑旗</figcaption>
+            </figure>
+            <figure>
+                <img src="img/a (3).jpg" alt=""/>
+                <figcaption>二太爷 -阿泰尔</figcaption>
+            </figure>
+            <figure>
+                <img src="img/a (4).jpg" alt=""/>
+                <figcaption>八爷 -巴耶克</figcaption>
+            </figure>
+            <figure>
+                <img src="img/a (9).jpg" alt=""/>
+                <figcaption>老色鬼 -艾吉欧·奥迪托雷·达·佛罗伦萨</figcaption>
+            </figure>  
+            <figure>
+                <img src="img/a (1).jpg" alt=""/>
+                <figcaption>亡灵法师 -爱德华·肯威</figcaption>
+            </figure>
+            <figure>
+                <img src="img/a (7).jpg" alt=""/>
+                <figcaption>法棍 -亚诺·多里安 </figcaption>
+            </figure>
+            <figure>
+                <img src="img/a (5).jpg" alt=""/>
+                <figcaption>康师傅 -康纳·肯威</figcaption>
+            </figure>
+            
+        </div>
+    </section>
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/carousel.js"></script>
+<script>
+    carousel.init({
+        selector:"#carousel",
+        point:"right",
+        autoPlay:true,
+        // btn:false,
+        time:5000
+    });
+</script>
+</html>

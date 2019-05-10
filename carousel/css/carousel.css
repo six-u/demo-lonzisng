@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.carousel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #333;
+}
+.carousel figure {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+  padding-top: 10vh;
+  display: none;
+}
+.carousel figure img {
+  width: 100%;
+  height: 100%;
+}
+.carousel figure p {
+  height: 30px;
+}
+.carousel figure figcaption {
+  padding: 8px 0;
+  color: #fff;
+  text-align: center;
+}
+.carousel .current {
+  display: block;
+}
+.carousel .controll {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.carousel .controll div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.carousel .controll div img {
+  width: 60px;
+  height: 100px;
+  margin-top: 40vh;
+  opacity: .3;
+}
+.carousel .controll div img:last-child {
+  float: right;
+}
+.carousel .controll div img:hover {
+  opacity: .5;
+}
+.carousel .controll div.blacker img {
+  opacity: .05;
+}
+.carousel .controll div.blacker img:hover {
+  opacity: .5;
+}
+.carousel .controll p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.carousel .controll p span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.carousel .controll p span.current {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.carousel .controll p.atbottom {
+  bottom: 12vh;
+}
+.carousel .controll p.attop {
+  top: 12vh;
+}
+.carousel .controll p.atleft {
+  width: 30px;
+  left: 12%;
+  top: 50%;
+  margin-top: -105px;
+}
+.carousel .controll p.atright {
+  width: 30px;
+  right: 12%;
+  top: 50%;
+  margin-top: -105px;
+}
