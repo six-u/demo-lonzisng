@@ -2,12 +2,13 @@
     function Carousel(){
         this.init = function(obj){
             this.selector=obj.selector;
-            this.point=obj.point;
-            this.autoPlay=obj.autoPlay;
-            this.time = obj.time;
-            this.btn=this.btn;
+            this.point=obj.point || "bottom";
+            this.autoPlay=obj.autoPlay===undefined?true:obj.autoPlay;
+            this.time = obj.time||3000;
+            this.btn=obj.btn;
             this.__createControll(this.selector,this.point,this.autoPlay,this.btn);
-            this.__addEvent(this.selector,this.autoPlay,this.time);
+            this.__addClickEvent(this.selector,this.autoPlay,this.time);
+            this.__addSlideEvent();
         }
         this.__createControll=function (selector,pointposition,autoPlay,btn){
             let positon="at";
@@ -25,13 +26,16 @@
                 }
             }
             let div="";
-            // if(btn){
-            //     if(!autoPlay){
-
-            //     }
-            // }
-            if(!autoPlay){
-                div="blacker";
+            if(btn===undefined){
+                if(autoPlay){
+                    div="blacker";
+                }
+            }else{
+                if(btn){
+                    div="";
+                }else{
+                    div="blacker";
+                }
             }
             $(selector).append(`<div id="controll" class="controll">
                 <div class="${div}"><img id="prev" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAABv0lEQVRoQ93b0VHDMAwG4P+fAEboCDABdAOYALoBTABMQpkARugIsAEjwATidFfueGkTO7b0G73mFPuLLnmQYmKAMLMHALcATgG8Abgn+VWzddYkReaY2fMe+3fZHcl1zT6kwQewv85zku+laFnwBNada5K7fwGegf0GsKp5j+UqPAPrRb0m6R+v4pACz8RuSG6LpfsEGXAE1s0S4CisBDgSmw6OxqaCM7Bp4CxsCjgTGw7OxoaCFbBhYBVsCFgJ2x2shu0KVsR2A6tiu4CVsc3B6tim4BGwzcCjYJuAR8IuBo+GXQQeEVsNNrMrAK8TncNF3cXaruRUXlUTz8y8TXpz5OaS2CUVfgTgE71DsSW5mXraGddrK7wC4IOsk9HQVWBHmpnPa32UeSzkKl0NHhW9CDwiejF4NHQT8EjoZuBR0E3BI6Cbg9XRXcDK6G5gVXRXsCK6O1gNHQJWQoeBVdChYAV0ODgbnQLORKeBs9Cp4Ax0OjgaLQGORMuAo9BS4Ai0HLgAXfVXvCR4JvqFpPfGi0IWPAP9RNJHPkUhDT6C9lMtZyQ/i7QqRwCmNm1mlwC8mhcAPgDc1ZxZ8nV+ACHLMEzuYm8uAAAAAElFTkSuQmCC" alt="">
@@ -40,26 +44,41 @@
                 <p id="point" class="${positon}">${span.join("")}</p>
                 </div>`)
         }
-        this.__addEvent=function (selector,autoPlay,time){
+        this.__addClickEvent=function (selector,autoPlay,time){
             let len=$(selector).find("figure").length;
+
             $("#prev").click(function(){
                 let index=parseInt($("#point").find(".current").attr("data-id"));
                 index = index<=0?len-1:index-1;
-                $(selector).find("figure").removeClass("current").eq(index).addClass("current");
-                $("#point").find("span").removeClass("current").eq(index).addClass("current");
+                __change(index);
             });
+
             $("#next").click(__next);
+
             function __next(){
                 let index=parseInt($("#point").find(".current").attr("data-id"));
                 index = index>=len-1?0:index+1;
+                __change(index);
+            }
+
+            function __change(index){
                 $(selector).find("figure").removeClass("current").eq(index).addClass("current");
                 $("#point").find("span").removeClass("current").eq(index).addClass("current");
             }
+
             if(autoPlay===true){
                 this.timer= setInterval(function(){
                     __next();
                 },parseInt(time));
             }
+        }
+        this.__addSlideEvent=function(){
+            $(document).click(function(){
+                $(document).unbind("click");
+                $(document).mousemove(function(e){
+                    console.log(e.offsetX + "&&"+e.offsetY);
+                })
+            })
         }
     };
     window.carousel=new Carousel();
