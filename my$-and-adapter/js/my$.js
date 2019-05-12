@@ -3,7 +3,8 @@
         // 构造函数
         function My$(selector){
             this.selector=selector;
-            function getElement(){
+            getElement(this.selector);
+            function getElement(selector){
                 let type=this.selector.charAt(0),len;
                 if(type=="#"){
                     let id = this.selector.slice(1);
