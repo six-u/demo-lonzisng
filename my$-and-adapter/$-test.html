@@ -20,18 +20,18 @@
     <script>
         let dom=$("#div1");
         console.log(dom);
-        dom.extend({
+        $.extend({
             abc:function(){
                 console.log("abc");
             }
         });
-        console.log(dom.abc);
+        console.log($.abc);
         dom.fn.extend({
             t1:function(){
                 console.log("t1");
             }
         })
-        console.log(dom.t1);
+        console.log(dom.fn.t1);
     </script>
 </body>
 </html>

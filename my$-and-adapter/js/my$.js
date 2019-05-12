@@ -2,10 +2,11 @@
     function $(selector){
         // 构造函数
         function My$(selector){
+            let len;
             this.selector=selector;
             getElement(this.selector);
             function getElement(selector){
-                let type=selector.charAt(0),len;
+                let type=selector.charAt(0);
                 if(type=="#"){
                     let id = selector.slice(1);
                     len=1;
@@ -32,19 +33,11 @@
             }
             this.length = len;
             this.constructor="My$";
-            this.extend=function(obj){
-                for(let key in obj){
-                    this[key]=obj[key];
-                }
-            }
-            // this.css=function(attr,value){
-
-            // }
         }
-        // 添加原型
+        // 添加实例对象的扩展功能
         My$.prototype.extend=function(obj){
             for(let key in obj){
-                $[key]=obj[key];
+                My$.prototype[key]=obj[key];
             }
         }
         // 创建实例对象
@@ -52,6 +45,12 @@
         my$.fn=My$.prototype;
         //返回实例对象
         return my$;
+    }
+    // 添加$的扩展功能
+    $.extend=function(obj){
+        for(let key in obj){
+            $[key]=obj[key];
+        }
     }
     $.ajax=function(obj){
         function AJAX(obj){
