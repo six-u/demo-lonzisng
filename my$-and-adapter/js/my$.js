@@ -5,27 +5,27 @@
             this.selector=selector;
             getElement(this.selector);
             function getElement(selector){
-                let type=this.selector.charAt(0),len;
+                let type=selector.charAt(0),len;
                 if(type=="#"){
-                    let id = this.selector.slice(1);
+                    let id = selector.slice(1);
                     len=1;
                     this[0]=document.getElementById(id);
                 }else if(type=="."){
-                    let className = this.selector.slice(1);
+                    let className = selector.slice(1);
                     len = document.getElementsByClassName(className).length;
                     for(let i=0;i<len;i++){
                         this[i]=document.getElementsByClassName(className)[i];
                     }
                 }else{
-                    if(!document.getElementsByTagName(this.selector)){
-                        len = document.getElementsByTagName(this.selector);
+                    if(!document.getElementsByTagName(selector)){
+                        len = document.getElementsByTagName(selector);
                         for(let i=0;i<len;i++){
-                            this[i]=document.getElementsByTagName(this.selector)[i];
+                            this[i]=document.getElementsByTagName(selector)[i];
                         }
                     }else{
-                        len = document.getElementsByName(this.selector);
+                        len = document.getElementsByName(selector);
                         for(let i=0;i<len;i++){
-                            this[i]=document.getElementsByName(this.selector)[i];
+                            this[i]=document.getElementsByName(selector)[i];
                         }
                     }
                 }
