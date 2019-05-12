@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试自定义类jquery的$</title>
+</head>
+<body>
+    <div id="div1">
+        <span class="sp1"></span>
+        <span class="sp1"></span>
+        <span class="sp1"></span>
+        <span class="sp1"></span>
+    </div>
+    <form action="">
+        <input type="text" name="user"/>
+    </form>
+    <script src="js/my$.js"></script>
+    <script>
+        let dom=$("#div1");
+        console.log(dom);
+        dom.extend({
+            abc:function(){
+                console.log("abc");
+            }
+        });
+        console.log(dom.abc);
+        dom.fn.extend({
+            t1:function(){
+                console.log("t1");
+            }
+        })
+        console.log(dom.t1);
+    </script>
+</body>
+</html>
