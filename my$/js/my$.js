@@ -53,9 +53,8 @@
 
             }
             this.prev=function(){
-                
-            }
 
+            }
 
         }
         // 添加实例对象的扩展功能
@@ -77,45 +76,55 @@
         }
     }
     myqurey.ajax=function(obj){
-        function AJAX(obj){
-            this.url=obj.url||"";
-            this.type=obj.type||"get";
-            this.para=obj.para||null;
-            this.success=obj.success;
-            this.error=obj.error;
-            this.init=function(){
-                let XHR;
-                if(window.XMLHttpRequest){
-                    XHR = new XMLHttpRequest;
-                }else{
-                    XHR = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                if(this.type=="get"){
-                    XHR.open(this.type,this.url+"?"+this.para,true);
-                }else{
-                    XHR.open(this.type,this.url,true);
-                }
-                XHR.onreadstatechange = function(){
-                    if(httpRequest.readyState==4&httpRequest.status==200){
-                        console.log("200");
-                        this.success(XHR.reponseText);
-                        console.log(this.success());
-                    }else if(httpRequest.readyState==4&httpRequest.status!=200){
-                        this.error(XHR.reponseText);
-                        console.log("error");
-                    }
-                }
-                if(this.type=="post"){
-                    console.log("www111");
-                    XHR.setRequestHeader("content-type","application/x-www-form-urlencoded");
-                    XHR.send(this.para);
-                }else{
-                    XHR.send();
-                }
-            }
-        }
         let ajax = new AJAX(obj);
         ajax.init();
+    }
+    myqure.get=function(obj){
+        obj.type="get";
+        let ajax = new AJAX(obj);
+        ajax.init();
+    }
+    myqure.post=function(obj){
+        obj.type="post";
+        let ajax = new AJAX(obj);
+        ajax.init();
+    }
+    function AJAX(obj){
+        this.url=obj.url||"";
+        this.type=obj.type||"get";
+        this.para=obj.para||null;
+        this.success=obj.success;
+        this.error=obj.error;
+        this.init=function(){
+            let XHR;
+            if(window.XMLHttpRequest){
+                XHR = new XMLHttpRequest;
+            }else{
+                XHR = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            if(this.type=="get"){
+                XHR.open(this.type,this.url+"?"+this.para,true);
+            }else{
+                XHR.open(this.type,this.url,true);
+            }
+            XHR.onreadstatechange = function(){
+                if(httpRequest.readyState==4&httpRequest.status==200){
+                    console.log("200");
+                    this.success(XHR.reponseText);
+                    console.log(this.success());
+                }else if(httpRequest.readyState==4&httpRequest.status!=200){
+                    this.error(XHR.reponseText);
+                    console.log("error");
+                }
+            }
+            if(this.type=="post"){
+                console.log("www111");
+                XHR.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                XHR.send(this.para);
+            }else{
+                XHR.send();
+            }
+        }
     }
     window.$ = window.myqurey = myqurey;
 })();
