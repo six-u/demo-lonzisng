@@ -1,58 +1,82 @@
 (function(){
-    function $(selector){
+    function myqurey(selector){
         // 构造函数
-        function My$(selector){
-            let len;
+        function Myqurey(selector){
             this.selector=selector;
-            getElement(this.selector);
-            function getElement(selector){
-                let type=selector.charAt(0);
-                if(type=="#"){
-                    let id = selector.slice(1);
-                    len=1;
-                    this[0]=document.getElementById(id);
-                }else if(type=="."){
-                    let className = selector.slice(1);
-                    len = document.getElementsByClassName(className).length;
-                    for(let i=0;i<len;i++){
-                        this[i]=document.getElementsByClassName(className)[i];
+            let dom=document.querySelectorAll(this.selector);
+            this.length = dom.length;
+            for(let i=0;i<dom.length;i++){
+                this[i]=dom[i];
+            }
+            this.css=function(){
+                if( typeof arguments[0] =="object"){
+                    for(let i =0;i<this.length;i++){
+                        for(let key in arguments[0]){
+                            this[i].style[key]=arguments[0][key];
+                        }
                     }
                 }else{
-                    if(!document.getElementsByTagName(selector)){
-                        len = document.getElementsByTagName(selector);
-                        for(let i=0;i<len;i++){
-                            this[i]=document.getElementsByTagName(selector)[i];
-                        }
+                    if(arguments.length==1){
+                        return getStyle(dom[0])[arguments[0]];
                     }else{
-                        len = document.getElementsByName(selector);
-                        for(let i=0;i<len;i++){
-                            this[i]=document.getElementsByName(selector)[i];
+                        for(let i=0;i<this.length;i++){
+                            dom[i].style[arguments[0]]=arguments[1];
                         }
                     }
                 }
+                return this;
             }
-            this.length = len;
-            this.constructor="My$";
+            function getStyle(obj){
+                return (typeof obj.currentStyle==undefined)?obj.currentStyle:document.defaultView.getComputedStyle(obj);
+            }
+            this.text=function(){
+                if(arguments.length==0){
+                    return dom[0].innerText;
+                }else{
+                    for(let i=0;i<dom.length;i++){
+                        dom[i].innerText = arguments[0];
+                    }
+                }
+                return this;
+            }
+            this.html=function(){
+                if(arguments.length==0){
+                    return dom[0].innerHTML;
+                }else{
+                    for(let i=0;i<dom.length;i++){
+                        dom[i].innerHTML = arguments[0];
+                    }
+                }
+                return this;
+            }
+            this.next=function(){
+
+            }
+            this.prev=function(){
+                
+            }
+
+
         }
         // 添加实例对象的扩展功能
-        My$.prototype.extend=function(obj){
+        Myqurey.prototype.extend=function(obj){
             for(let key in obj){
-                My$.prototype[key]=obj[key];
+                Myqurey.prototype[key]=obj[key];
             }
         }
         // 创建实例对象
-        let my$=new My$(selector);
-        my$.fn=My$.prototype;
+        let myqurey=new Myqurey(selector);
+        myqurey.fn=Myqurey.prototype;
         //返回实例对象
-        return my$;
+        return myqurey;
     }
     // 添加$的扩展功能
-    $.extend=function(obj){
+    myqurey.extend=function(obj){
         for(let key in obj){
             $[key]=obj[key];
         }
     }
-    $.ajax=function(obj){
+    myqurey.ajax=function(obj){
         function AJAX(obj){
             this.url=obj.url||"";
             this.type=obj.type||"get";
@@ -93,5 +117,5 @@
         let ajax = new AJAX(obj);
         ajax.init();
     }
-    window.$ = $;
+    window.$ = window.myqurey = myqurey;
 })();

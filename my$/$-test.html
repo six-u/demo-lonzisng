@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>测试自定义类jquery的$</title>
+    <style>
+        #div1{
+            color:#f40;
+        }
+    </style>
 </head>
 <body>
     <div id="div1">
-        <span class="sp1"></span>
-        <span class="sp1"></span>
-        <span class="sp1"></span>
-        <span class="sp1"></span>
+        <span class="sp1">1</span>
+        <span class="sp1">1</span>
+        <span class="sp1">1</span>
+        <span class="sp1">1</span>
+    </div>
+    <div>
+        <span class="sq1">2</span>
+        <span class="sq1">2</span>
+        <span class="sq1">2</span>
+        <span class="sq1">2</span>
     </div>
     <form action="">
         <input type="text" name="user"/>
@@ -19,19 +30,8 @@
     <script src="js/my$.js"></script>
     <script>
         let dom=$("#div1");
-        console.log(dom);
-        $.extend({
-            abc:function(){
-                console.log("abc");
-            }
-        });
-        console.log($.abc);
-        dom.fn.extend({
-            t1:function(){
-                console.log("t1");
-            }
-        })
-        console.log(dom.fn.t1);
+        console.log(dom.text("hahah").css({color:"blue",fontSize:"30px"}).html("<i>辅导方式</i>"));
+        console.log(dom.html("<p>d大大</p>"));
     </script>
 </body>
 </html>
