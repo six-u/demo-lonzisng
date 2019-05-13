@@ -55,7 +55,6 @@
             this.prev=function(){
 
             }
-
         }
         // 添加实例对象的扩展功能
         Myqurey.prototype.extend=function(obj){
@@ -79,12 +78,12 @@
         let ajax = new AJAX(obj);
         ajax.init();
     }
-    myqure.get=function(obj){
+    myqurey.get=function(obj){
         obj.type="get";
         let ajax = new AJAX(obj);
         ajax.init();
     }
-    myqure.post=function(obj){
+    myqurey.post=function(obj){
         obj.type="post";
         let ajax = new AJAX(obj);
         ajax.init();
