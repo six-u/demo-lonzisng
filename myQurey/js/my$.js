@@ -50,10 +50,18 @@
                 return this;
             }
             this.next=function(){
-
+                for(let i=0;i<this.length;i++){
+                    delete this[i];
+                }
+                this[0]=dom[0].nextElementSibling;
+                return this;
             }
             this.prev=function(){
-
+                for(let i=0;i<this.length;i++){
+                    delete this[i];
+                }
+                this[0]=dom[0].previousElementSibling;
+                return this;
             }
         }
         // 添加实例对象的扩展功能
