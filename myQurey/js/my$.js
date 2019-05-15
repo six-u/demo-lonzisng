@@ -63,6 +63,16 @@
                 this[0]=dom[0].previousElementSibling;
                 return this;
             }
+            this.addClass=function(newClass){
+                for(let i=0;i<this.length;i++){
+                    dom[i].className = dom[i].className +" "+newClass;
+                }
+            }
+            this.removeClass=function(targetClass){
+                for(let i=0;i<this.length;i++){
+                    dom[i].className.replace(targetClass,"");
+                }
+            }
         }
         // 添加实例对象的扩展功能
         Myqurey.prototype.extend=function(obj){
