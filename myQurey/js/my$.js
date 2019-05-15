@@ -67,11 +67,13 @@
                 for(let i=0;i<this.length;i++){
                     dom[i].className = dom[i].className +" "+newClass;
                 }
+                return this;
             }
             this.removeClass=function(targetClass){
                 for(let i=0;i<this.length;i++){
-                    dom[i].className.replace(targetClass,"");
+                    dom[i].className = dom[i].className.replace(targetClass,"");
                 }
+                return this;
             }
         }
         // 添加实例对象的扩展功能
