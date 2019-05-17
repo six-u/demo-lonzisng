@@ -75,6 +75,18 @@
                 }
                 return this;
             }
+            this.show=function(){
+                for(let i=0;i<this.length;i++){
+                    dom[i].style.display="block";
+                }
+                return this;
+            }
+            this.hide=function(){
+                for(let i=0;i<this.length;i++){
+                    dom[i].style.display="none";
+                }
+                return this;
+            }
         }
         // 添加实例对象的扩展功能
         Myqurey.prototype.extend=function(obj){
