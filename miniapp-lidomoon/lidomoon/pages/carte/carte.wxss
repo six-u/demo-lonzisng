@@ -1,0 +1,106 @@
+/* pages/carte/carte.wxss */
+page{
+    background: #f2f2f2
+}
+swiper {
+    width: 750rpx;
+    height: 400rpx;
+}
+swiper-item{
+    width: 750rpx;
+    height: 400rpx;
+    display: block;
+}
+swiper-item image{
+    width: 100%;
+    height: 100%;
+}
+.lbox{
+    margin: 32rpx 4vw;
+    width: 92vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.splb{
+    width: 100%;
+    font-size: 34rpx;
+    color: #f73c49;
+}
+.carte{
+    width: 96vw;
+    margin: 2% 2vw;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.carte image{
+    width: 200rpx;
+    height: 120rpx;
+    margin-right: 24rpx;
+    float: left;
+}
+.carte .name{
+    font-size: 28rpx;
+    float: left;
+    line-height: 120rpx;
+}
+.carte .price{
+    line-height: 120rpx;
+    font-size: 28rpx;
+    text-align: right;
+    position: absolute;
+    right: 96rpx;
+    color: #f73c49;
+}
+checkbox-group{
+    margin-bottom: 100rpx;
+}
+checkbox{
+    width: 96vw;
+    display: block;
+}
+/* checkbox未选中时样式 */
+checkbox .wx-checkbox-input{
+    border-radius: 3rpx;  
+    height: 26rpx;  
+    width: 26rpx;  
+    margin-top: -4rpx;
+    position: absolute;
+    right: 8rpx;
+}
+/* checkbox选中时样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+    border: 1rpx solid #f73c49;
+    color: #f73c49;
+}
+
+.total{
+    position: fixed;
+    bottom: 3rpx;
+    width: 100vw;
+    background-color: #fff;
+    box-shadow: 0 0 5rpx #ccc;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 32rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+}
+.total text:first-child{
+    float: left;
+}
+.total text:last-child{
+    float: right;
+    color:#f73c49;
+    margin:0 15rpx;
+}
+.total button{
+    float: right;
+    display: inline;
+    line-height: 50rpx;
+    margin:15rpx 30rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background-color: #f73c49;
+}

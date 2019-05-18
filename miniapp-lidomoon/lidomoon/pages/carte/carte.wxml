@@ -1,0 +1,33 @@
+<!--pages/carte/carte.wxml-->
+<view class="">
+<view class="top_img">
+    <swiper class="" autoplay="true" current="0" current-item-id="" interval="4500" circular="true"
+        previous-margin="false" next-margin="0px" display-multiple-items="1" easing-function="easeInOutCubic"
+        bindchange="" bindanimationfinish="">
+        <block wx:for="{{banner}}" wx:key="{{index}}">
+            <swiper-item>
+                <image class="" src="{{item}}" mode="aspectFill" lazy-load="false"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<checkbox-group bindchange="">
+<view wx:for="{{repast}}" wx:key="{{index}}" class="lbox" hover-class="none" hover-stop-propagation="false">
+    <view class="splb" hover-class="none" hover-stop-propagation="false">
+        {{repastLb[index]}}
+    </view>
+    
+    <view class="carte" wx:for="{{repast[index]}}" wx:key="{{index}}" hover-class="none" hover-stop-propagation="false">
+        <checkbox class="" value="{{index}}" color="">
+            <image class="img" src="{{item.img}}" mode="aspectFit|aspectFill|widthFix"/>
+            <view class="name">{{item.name}}</view>
+            <view class="price">￥{{item.price}}</view>
+        </checkbox>
+    </view>
+</view>
+</checkbox-group>
+<view class="total">
+    <text class="">合计：</text><button>预订</button><text class="">￥{{totalPrice}}</text>
+</view>
+</view>
+  

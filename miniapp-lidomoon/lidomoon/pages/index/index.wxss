@@ -1,0 +1,128 @@
+/**index.wxss**/
+page{
+  background: #f2f2f2
+}
+swiper {
+  width: 750rpx;
+  height: 400rpx;
+}
+swiper-item{
+  width: 750rpx;
+  height: 400rpx;
+  display: block;
+}
+swiper-item image{
+  width: 100%;
+  height: 100%;
+}
+.char{
+  position: absolute;
+  top: 300rpx;
+  width: 92%;
+  left: 4%;
+  border-radius: 10rpx;
+  background-color: rgba(255,255,255,1)
+}
+.char .centent{
+  margin: 25rpx;
+}
+.char .centent image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.char .centent .text{
+  display: inline-block;
+  position: relative;
+  bottom: 5rpx;
+  font-size: 30rpx;
+  color: #D28D5F;
+  margin-left: 10rpx
+}
+.xian{
+  height: 1rpx;
+  width: 95%;
+  background: #d2d2d2;
+  margin: 10rpx
+}
+.ruzhuriqi{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #9f9f9f;
+}
+.ruzhuriqi view{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+.ruzhuriqi view:nth-child(2){
+  color:#f73c49;
+}
+.ruzhushijian{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  color: #C8C8C8
+}
+.ruzhushijian view{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+/* 列表 */
+.list{
+  margin-top:120rpx;
+  width: 92%;
+  padding: 0 4vw;
+  display: flex;
+  flex-direction: column;
+}
+.list .content{
+  width: 100%;
+  height: 400rpx;
+  margin: auto;
+  margin-bottom: 30rpx;
+  background-color: #fff;
+  position: relative;
+}
+.content image{
+  width: 100%;
+  height: 400rpx;
+}
+.content .bar{
+  position: absolute;
+  bottom: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 4%;
+  width: 92%;
+  font-size: 28rpx;
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+}
+.bar .price{
+  float:right;
+}
+
+.contact{
+  width: 92%;
+  padding: 0 4vw;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color: #797979;
+}
+.contact .contact-item{
+  background-color: #fff;
+  margin: 16rpx 0;
+  padding: 16rpx;
+}
+.contact .contact-item text{
+  border-left:2rpx solid #9f9f9f;
+  padding: 0 16rpx;
+  margin:0 16rpx;
+}
+.contact .contact-item image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 16rpx;
+}

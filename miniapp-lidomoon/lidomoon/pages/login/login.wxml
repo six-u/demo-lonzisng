@@ -1,0 +1,24 @@
+<view class="">
+    <swiper class="" autoplay="false" current="0" interval="5000" duration="1000">
+        <block wx:for="{{banner}}" wx:key="index">
+            <swiper-item>
+                <image class="" src="{{item}}" mode="aspectFill"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="" hover-class="none" hover-stop-propagation="false">
+        <view class="title" hover-class="none" hover-stop-propagation="false">
+            <image class="" src="/images/logo.png" mode="aspectFit|aspectFill|widthFix" />
+        </view>
+        
+        <view class="avatar" hover-class="none" hover-stop-propagation="false">
+            <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="tips" hover-class="none" hover-stop-propagation="false">
+            tips:登录之后才可以做其他操作哦！！
+        </view>
+        <view class="userinfo">
+            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登陆 </button>
+        </view>
+    </view>
+</view>

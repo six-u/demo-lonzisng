@@ -1,0 +1,29 @@
+<!--pages/order/order.wxml-->
+<image class='store_img_bj' wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+<view class="userinfo">
+    <image class="userinfo-avatar fl_l" wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="fl_l" wx:if="{{userInfo.nickName != 'undefined'}}">{{userInfo.nickName}} </text>
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登陆 </button>
+</view>
+
+<view class="order" wx:for="{{order}}" hover-class="none" hover-stop-propagation="false">
+    <view wx:if="{{item.room_type}}"  class='room'>
+        <image class="img" src="/images/tuoxie.png" mode="aspectFit|aspectFill|widthFix"/><text class='roomType'>{{room[item.room_type].room_type}}</text>
+        <view class='msg'><text>{{item.checkInTime}}</text>到<text>{{item.checkOutTime}}</text></view>
+        <view class='msg'>数量：共 {{item.num}} 间</view>
+        <view>价格：<text class='price'>￥{{item.totalPrice}}</text></view>
+        <view class='right'>{{item.create_date}}</view>
+        <view wx:if="{{item.state}}" class='tips'>已受理</view>
+    </view>
+    <view wx:else class='carte'>
+        <image class="img"  src="/images/dingcan.png" mode="aspectFit|aspectFill|widthFix"/><text>{{item.date}}</text><text style="margin-left:24rpx">{{item.type}}</text>
+        <view class='food'>
+            <block wx:for="{{item.carte_type}}">
+                <view>{{item}}<text>×1</text></view>
+            </block>
+        </view>
+        <view>价格：<text class='price'>￥{{item.totalPrice}}</text></view>
+        <view class='right'>{{item.create_date}}</view>
+        <view wx:if="{{item.state}}" class='tips'>已受理</view>
+    </view>
+</view>

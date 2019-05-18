@@ -1,0 +1,91 @@
+<!--pages/detail/detail.wxml-->
+<view class="">
+    <swiper class="" autoplay="false" current="0" interval="5000" duration="1000">
+        <block wx:for="{{banner}}" wx:key="index">
+            <swiper-item>
+                <image class="" src="{{item}}" mode="aspectFill"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="detail">
+        <view>丽都月影酒店作为一家藏族特色的民宿酒店。</view>
+        <view>我们这里可以泡温泉，还可以裸眼看到银河系，还可以泡着温泉裸眼看银河系。</view>
+    </view>
+    <view class="logo">
+        <image class="" src="/images/logo.png" mode="aspectFit|aspectFill|widthFix" />
+    </view>
+    <view class="facility">
+        <image class="" src="/images/shijian.png"/>请在 <text class="">{{checkin}}</text>办理入住，<text class="">{{checkout}}</text>办理离店。
+    </view>
+    <view class="facility">
+        <image class="" src="/images/weizhixiangqing.png"/>{{app.hotelcontact.adress}}
+    </view>
+    <view class="facility" data-num="{{app.hotelcontact.tel}}" bindtap="callNum">
+        <image class="" src="/images/dianhua.png"/>{{app.hotelcontact.tel}}
+    </view>
+    <view class="facility" data-num="{{app.hotelcontact.phone}}" bindtap="callNum">
+        <image class="" src="/images/dianhua.png"/>{{app.hotelcontact.phone}}
+    </view>
+    <view class="facility">
+        <image class="" src="/images/xiedaichongwu.png" mode="aspectFit|aspectFill|widthFix" />
+        <text class="" >{{facility.pet}}</text>
+    </view>
+    <view class="facility">
+        <image class="" src="/images/kuandai.png" mode="aspectFit|aspectFill|widthFix" />
+        <text class="" >{{facility.internet}}</text>
+    </view>
+    <view class="facility">
+        <image class="" src="/images/park.png" mode="aspectFit|aspectFill|widthFix" />
+        <text class="" >{{facility.parking}}</text>
+    </view>
+    <view class="servers">
+        <view class="">
+            <image class="" src="/images/reshui.png"/>
+            <view class="">
+                24小时热水
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/xiyiji.png"/>
+            <view class="">
+                洗衣服务
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/xishuyongpin.png"/>
+            <view class="">
+                洗漱用品
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/tuoxie.png"/>
+            <view class="">
+                拖鞋
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/kuandai.png"/>
+            <view class="">
+                宽带
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/kongtiao.png"/>
+            <view class="">
+                空调
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/dianshiji.png"/>
+            <view class="">
+                电视机
+            </view>
+        </view>
+        <view class="">
+            <image class="" src="/images/zuche.png"/>
+            <view class="">
+                送机(自费)
+            </view>
+        </view>
+    </view>
+</view>

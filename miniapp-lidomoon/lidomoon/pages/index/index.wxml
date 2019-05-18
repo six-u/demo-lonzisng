@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view>
+<view class="top_img">
+    <swiper class="" autoplay="true" current="0" current-item-id="" interval="4500" circular="true" vertical="true"
+        previous-margin="false" next-margin="0px" display-multiple-items="1" easing-function="easeInOutCubic"
+        bindchange="" bindanimationfinish="">
+        <block wx:for="{{banner}}" wx:key="{{index}}">
+            <swiper-item>
+                <image class="" src="{{item}}" mode="aspectFill" lazy-load="false"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class='char'>
+    <view class='centent'>
+        <view class='ruzhuriqi'>
+            <view>入驻日期</view>
+            <view>共 {{num}} 晚</view>
+            <view>离店日期</view>
+        </view>
+        <view class='ruzhushijian'>
+            <view style='color:#000; font-weight: bold'>
+                <picker mode="date" value="{{start_date}}" start="{{data}}"  bindchange="start_date">{{start_date}}</picker>
+            </view>
+            <view>|</view>
+            <view style='color:#000; font-weight: bold'>
+                <picker mode="date" value="{{end_date}}" start="{{data}}" bindchange="end_date">{{end_date}}</picker>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='list'>
+    <block wx:for="{{app.room_type}}" wx:key="{{index}}">
+    <navigator class="" target="" url="../book/book?id={{index}}" hover-class="navigator-hover" open-type="navigate">
+    <view class="content">
+        <image class="" src="{{item.img[0]}}" lazy-load="false"/>
+        <view class="bar">
+            <view class="name">
+                {{item.room_type}}<text class="price">¥{{item.room_price}}</text>
+            </view>
+        </view>
+    </view>
+    </navigator>
+    </block>
+</view>
+<view class="contact">
+    <view class="contact-item"><image class="" src="/images/weizhixiangqing.png"/>地址<text class="">{{app.hotelcontact.adress}}</text></view>
+    <view class="contact-item" data-num="{{app.hotelcontact.tel}}" bindtap="callNum"><image class="" src="/images/dianhua.png"/>电话<text class="">{{app.hotelcontact.tel}}</text></view>
+    <view class="contact-item" data-num="{{app.hotelcontact.phone}}" bindtap="callNum"><image class="" src="/images/dianhua.png"/>手机<text class="">{{app.hotelcontact.phone}}</text></view>
+</view>
+</view>
+  

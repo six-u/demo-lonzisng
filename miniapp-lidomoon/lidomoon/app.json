@@ -1,0 +1,52 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/book/book",
+        "pages/order/order",
+        "pages/detail/detail",
+        "pages/carte/carte",
+        "pages/user/user",
+        "pages/login/login"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#fff",
+        "navigationBarTitleText": "LIDOMOON HOTEL",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#858585",
+        "selectedColor": "#f73c49",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/index.png",
+                "selectedIconPath": "images/index1.png",
+                "text": "订房"
+            },
+            {
+                "pagePath": "pages/carte/carte",
+                "iconPath": "images/dingcan.png",
+                "selectedIconPath": "images/dingcan1.png",
+                "text": "点餐"
+            },
+            {
+                "pagePath": "pages/detail/detail",
+                "iconPath": "images/jiudian.png",
+                "selectedIconPath": "images/jiudian1.png",
+                "text": "酒店介绍"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "iconPath": "images/huiyuan.png",
+                "selectedIconPath": "images/huiyuan1.png",
+                "text": "会员"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

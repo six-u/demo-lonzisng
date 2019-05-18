@@ -1,0 +1,44 @@
+<!--pages/book/book.wxml-->
+<view class="top_img">
+    <swiper class="" autoplay="true" current="0" current-item-id="" interval="4500" circular="true" previous-margin="false" next-margin="0px" display-multiple-items="1" easing-function="easeInOutCubic" bindchange="" bindanimationfinish="">
+        <block wx:for="{{room.img}}" wx:key="{{index}}">
+            <swiper-item>
+                <image class="" src="{{item}}" mode="aspectFill" lazy-load="false"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<view class='char'>
+    <view class='centent'>
+        <view>{{room.room_type}}</view>
+        <view class='text_2'>{{start_date}} | {{end_date}} 共 {{num}} 晚</view>
+    </view>
+</view>
+<view class='content'>
+    <view class='description'><text >{{room.room_description}}</text></view>
+    <view class="message">
+        <text>姓名：</text><input name="input" placeholder="请输入姓名" />
+    </view>
+    <view class="message">
+        <text>手机：</text><input name="input" placeholder="请输入手机号码作为入住凭证" />
+    </view>
+    <view class="message">
+        <text>数量：</text><input name="input" bindinput='calcPrice' value='1' />
+    </view>
+    <view class="">
+        <picker  mode="date" value="{{start_date}}" start="{{data}}" end="2018-12-31" bindchange="start_date">
+            <view class="message time">
+                <view>入住时间：{{start_date}}</view>
+                <view>入住天数：{{num}}</view>
+            </view>
+            <view class="picker"></view>
+        </picker>
+    </view>
+    <view class="message">
+        <checkbox class="" value="1">发票</checkbox>
+    </view>
+</view>
+<view class='bottom'>
+    <view class='price'>结算：￥{{room.room_price*num}}</view>
+    <view class='btn' bindtap='btn'>提交订单</view>
+</view>
