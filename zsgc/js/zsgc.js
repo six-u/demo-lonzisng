@@ -46,11 +46,15 @@ new Vue({
             this.userData.forEach(item => {
                 for(prop in item){
                     if(item[prop].includes(arr[0])){
-                        this.userList.push(item)
-                    };
+                        this.userList.push(item);
+                    }
                 }
             });
-            
+            console.log(this.userList);
+            if(this.userList.length==0){
+                this.keyWords="";
+                this.userList=this.userData; 
+            }
         },
         submit:function(){
             let obj={name:this.editName,level:this.editLevel,num:this.editNum};

@@ -14,7 +14,7 @@
 </style>
 <body>
 <div id="app">
-    <input type="text" v-model="keyWords" placeholder="请输入关键词"><button @click="search">搜索</button><br/>
+    <input type="text" v-model="keyWords" placeholder="请输入关键词" @keyup.enter="search"><button @click="search">搜索</button><br/>
     <table>
     <thead><tr><td>序号</td><td>姓名</td><td>等级</td><td>数值</td><td>操作</td></tr></thead>
     <tbody>
@@ -32,6 +32,6 @@
     </div>
 </div>
 </body>
-<script src="js/vue.js"></script>
+<script src="../vue.js"></script>
 <script src="js/zsgc.js"></script>
 </html>
