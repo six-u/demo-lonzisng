@@ -28,4 +28,4 @@ demo仓库
 
 ## ConwayLifeGame
 
-    康威生命游戏-demo
+    react康威生命游戏-demo
